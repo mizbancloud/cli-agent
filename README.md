@@ -1,7 +1,7 @@
 # MizbanCloud CLI
 
 [![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8?style=flat&logo=go)](https://go.dev/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-GPL--2.0-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey)](https://github.com/mizbancloud/cli/releases)
 
 A powerful, feature-rich command-line interface for managing MizbanCloud infrastructure services. Built with Go for cross-platform compatibility and optimal performance.
@@ -48,24 +48,58 @@ A powerful, feature-rich command-line interface for managing MizbanCloud infrast
 
 ## Installation
 
-### Pre-built Binaries
-
-Download the latest release for your platform from the [Releases](https://github.com/mizbancloud/cli/releases) page.
+### Ubuntu/Debian
 
 ```bash
-# Linux (amd64)
+# Download binary
 curl -LO https://github.com/mizbancloud/cli/releases/latest/download/mizban-linux-amd64
+
+# Make executable
 chmod +x mizban-linux-amd64
+
+# Move to system path
 sudo mv mizban-linux-amd64 /usr/local/bin/mizban
 
-# macOS (Apple Silicon)
+# Verify installation
+mizban --version
+```
+
+### macOS
+
+```bash
+# Intel Mac
+curl -LO https://github.com/mizbancloud/cli/releases/latest/download/mizban-darwin-amd64
+chmod +x mizban-darwin-amd64
+sudo mv mizban-darwin-amd64 /usr/local/bin/mizban
+
+# Apple Silicon (M1/M2/M3)
 curl -LO https://github.com/mizbancloud/cli/releases/latest/download/mizban-darwin-arm64
 chmod +x mizban-darwin-arm64
 sudo mv mizban-darwin-arm64 /usr/local/bin/mizban
 
-# Windows (PowerShell)
-Invoke-WebRequest -Uri "https://github.com/mizbancloud/cli/releases/latest/download/mizban-windows-amd64.exe" -OutFile "mizban.exe"
+# Verify installation
+mizban --version
 ```
+
+### Windows
+
+**PowerShell:**
+```powershell
+# Download binary
+Invoke-WebRequest -Uri "https://github.com/mizbancloud/cli/releases/latest/download/mizban-windows-amd64.exe" -OutFile "mizban.exe"
+
+# Move to a directory in your PATH (e.g., C:\Windows or create custom folder)
+Move-Item mizban.exe C:\Windows\mizban.exe
+
+# Verify installation
+mizban --version
+```
+
+**Manual Installation:**
+1. Download `mizban-windows-amd64.exe` from [Releases](https://github.com/mizbancloud/cli/releases)
+2. Rename to `mizban.exe`
+3. Move to a folder in your PATH (e.g., `C:\Program Files\mizban\`)
+4. Or add the folder to your system PATH environment variable
 
 ### Build from Source
 
@@ -78,19 +112,10 @@ cd cli
 # Build for current platform
 make build
 
-# Cross-compile for all platforms
-make all
-
 # Platform-specific builds
 make linux
 make darwin
 make windows
-```
-
-### Verify Installation
-
-```bash
-mizban --version
 ```
 
 ## Quick Start
@@ -734,7 +759,7 @@ If you discover a security vulnerability, please email security@mizbancloud.com 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v2.0 - see the [LICENSE](LICENSE) file for details.
 
 ---
 
